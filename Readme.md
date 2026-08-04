@@ -109,3 +109,23 @@ $$arr = [1, 3, 4, 5, 7, 8, 10, 13, 14]$$
 | **Caso Médio** | $O(\log n)$ | O espaço de busca é dividido pela metade a cada iteração. |
 | **Pior Caso** | $O(\log n)$ | O elemento está nas extremidades ou não existe na lista. |
 | **Espaço** | $O(1)$ | Versão iterativa (não consome memória adicional). |
+
+
+## 🌲 Árvore Binária de Busca Auto-Balanceada (Árvore AVL)
+
+A **Árvore AVL** é uma Árvore Binária de Busca (BST) que mantém sua altura rigidamente balanceada através do cálculo do **Fator de Balanceamento (FB)** em cada nó.
+
+$$FB = \text{Altura}(\text{Esquerda}) - \text{Altura}(\text{Direita})$$
+
+Para que a árvore continue balanceada, o valor de $FB$ de todos os nós deve ser mantido estritamente em **$\{-1, 0, +1\}$**.
+
+### 🔄 Operações de Rotação
+Sempre que uma inserção ou remoção resulta em $FB = \pm 2$, realiza-se uma readequação em tempo $O(1)$:
+
+1. **Rotação Simples à Direita:** Usada quando o desbalanceamento ocorre na subárvore esquerda de um filho esquerdo.
+2. **Rotação Simples à Esquerda:** Usada quando o desbalanceamento ocorre na subárvore direita de um filho direito.
+3. **Rotação Dupla Esquerda-Direita:** Usada em casos de zig-zag (filho esquerdo, subárvore direita).
+4. **Rotação Dupla Direita-Esquerda:** Usada em casos de zig-zag (filho direito, subárvore esquerda).
+
+### 📊 Complexidade
+Graças ao balanceamento estrito, o pior caso para qualquer busca, inserção ou remoção é garantido em **$O(\log n)$**.
